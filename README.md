@@ -23,11 +23,20 @@ resp.raise_for_status()
 # Convert the request data to a Python dictionary
 mapping = resp.json()
 # Expand the Pango column
-mapping = pandas.DataFrame(mapping).explode('Pango lineages')
+mapping = pandas.DataFrame(mapping).explode('Pango lineages').reset_index(drop=True)
 # Filter out old designations
 mapping_current = mapping[mapping['Designation'] != 'Former Variant of Interest']
 # Simple example dataframe
 test_data = pandas.DataFrame({'Lineage': ['P.2','AY.3.1','P1.7'], 'Sample number': [1,2,3]})
- # The test dataframe with WHO labels, where the lineage matches, NaN otherwise
-print(test_data.merge(mapping_current,how='left',left_on='Lineage',right_on='Pango lineages'))
+# Function to do pango lineage match
+def match(lineage, col):
+    return (col.str.slice(stop=len(lineage))==lineage)
+# The test dataframe with WHO labels, where the lineage matches, NaN otherwise
+matches = mapping['Pango lineages'].apply(match, col=test_data['Lineage'])
+match_idx = matches.idxmax()
+# Filter out indexes where there is no match
+match_idx[match_idx==matches.idxmin()] = pandas.NA
+test_data['idx'] = match_idx
+# Join to the mapping based on indexes
+print(test_data.merge(mapping, how='left', left_on='idx', right_index=True).drop(columns=['idx','Pango lineages']))
 ```
