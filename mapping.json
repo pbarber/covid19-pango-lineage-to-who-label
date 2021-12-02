@@ -30,6 +30,13 @@
         ]
     },
     {
+        "WHO label": "Omicron",
+        "Designation": "Variant of Concern",
+        "Pango lineages": [
+            "B.1.1.529"
+        ]
+    },
+    {
         "WHO label": "Epsilon",
         "Designation": "Former Variant of Interest",
         "Pango lineages": [
