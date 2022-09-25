@@ -34,28 +34,28 @@
         "Designation": "Variant of Concern",
         "Pango lineages": [
             "B.1.1.529",
-            "BA.1."
+            "BA.1"
         ]
     },
     {
         "WHO label": "Omicron BA.2",
         "Designation": "Variant of Concern",
         "Pango lineages": [
-            "BA.2."
+            "BA.2"
         ]
     },
     {
         "WHO label": "Omicron BA.4",
         "Designation": "Variant of Concern",
         "Pango lineages": [
-            "BA.4."
+            "BA.4"
         ]
     },
     {
         "WHO label": "Omicron BA.5",
         "Designation": "Variant of Concern",
         "Pango lineages": [
-            "BA.5.",
+            "BA.5",
             "BF.",
             "BE."
         ]
