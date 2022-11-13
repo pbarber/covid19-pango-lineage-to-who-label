@@ -61,6 +61,13 @@
         ]
     },
     {
+        "WHO label": "Omicron BQ.1",
+        "Designation": "Variant of Interest",
+        "Pango lineages": [
+            "BQ.1"
+        ]
+    },
+    {
         "WHO label": "Epsilon",
         "Designation": "Former Variant of Interest",
         "Pango lineages": [
